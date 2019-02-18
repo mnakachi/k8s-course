@@ -10,8 +10,8 @@ spec:
   ports:
     - name: http
       port: 80
-      nodePort: 30080
-  type: NodePort
+      targetPort: 30080
+  type: LoadBalancer
 
 ---
 apiVersion: v1
