@@ -10,11 +10,12 @@ spec:
   ports:
     - name: http
       port: 80
-      # Used to be nodePort but changed to targetPort when type changed from NodePort to LoadBalancer
-      # Also original port of 30080 didn't work so changed to 80
-      targetPort: 80
-  # Was originally NodePort but couldn't get it to work with GKE so changed to LoadBalancer
-  type: LoadBalancer
+      # Use nodePort for minikube and targetPort for GKE
+      #targetPort: 80
+      nodePort: 30080
+  # Use NodePort for minikube and LoadBalancer for GKE
+  #type: LoadBalancer
+  type: NodePort
 
 ---
 apiVersion: v1
