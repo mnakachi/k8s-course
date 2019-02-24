@@ -10,12 +10,12 @@ spec:
   ports:
     - name: http
       port: 80
-      # Use nodePort for minikube and targetPort for GKE
+      # Use nodePort for minikube and targetPort for GKE or AWS (q: do you need targetPort at all?)
       #targetPort: 80
-      nodePort: 30080
-  # Use NodePort for minikube and LoadBalancer for GKE
-  #type: LoadBalancer
-  type: NodePort
+      #nodePort: 30080
+  # Use NodePort for minikube and LoadBalancer for GKE or AWS
+  type: LoadBalancer
+  #type: NodePort
 
 ---
 apiVersion: v1
@@ -28,11 +28,13 @@ spec:
   ports:
     - name: http
       port: 8161
-      nodePort: 30010
+      # Remove access to admin console
+      #nodePort: 30010
 
     - name: endpoint
       port: 61616
-  type: NodePort
+  #type: NodePort
+  type: ClusterIP
 
 ---
 apiVersion: v1
