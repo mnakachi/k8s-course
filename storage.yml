@@ -35,4 +35,4 @@ metadata:
   name: cloud-ssd
 provisioner: kubernetes.io/aws-ebs
 parameters:
-  type: gp2
+  type: gp2 # General purpose SSD
